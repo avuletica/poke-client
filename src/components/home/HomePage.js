@@ -9,7 +9,7 @@ export class HomePage extends Component {
     }
 
     render() {
-        console.log(this.props.pokemons);
+        console.log('this.props.pokemons', this.props.pokemons);
         if (this.props.pokemons.length > 0) {
             return (
                 <div>
