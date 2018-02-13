@@ -16,7 +16,7 @@ const styles = theme => ({
   },
 });
 
-class GenderGroupFilter extends React.Component {
+class ExperienceGroupFilter extends React.Component {
   state = {
     value: 'all',
   };
@@ -35,7 +35,7 @@ class GenderGroupFilter extends React.Component {
           required
           className={classes.formControl}
         >
-          <FormLabel component="legend">Gender</FormLabel>
+          <FormLabel component="legend">Experience</FormLabel>
           <RadioGroup
             aria-label="gender"
             name="gender"
@@ -44,12 +44,8 @@ class GenderGroupFilter extends React.Component {
             onChange={this.handleChange}
           >
             <FormControlLabel value="all" control={<Radio />} label="All" />
-            <FormControlLabel value="male" control={<Radio />} label="Male" />
-            <FormControlLabel
-              value="female"
-              control={<Radio />}
-              label="Female"
-            />
+            <FormControlLabel value="high" control={<Radio />} label="High" />
+            <FormControlLabel value="low" control={<Radio />} label="Low" />
           </RadioGroup>
         </FormControl>
       </div>
@@ -57,8 +53,8 @@ class GenderGroupFilter extends React.Component {
   }
 }
 
-GenderGroupFilter.propTypes = {
+ExperienceGroupFilter.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(GenderGroupFilter);
+export default withStyles(styles)(ExperienceGroupFilter);

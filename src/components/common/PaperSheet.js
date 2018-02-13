@@ -41,6 +41,20 @@ function PaperSheet(props) {
               </span>
             </Grid>
           </Grid>
+          <Grid container style={{ marginTop: 20 }}>
+            <Grid item xs={3}>
+              <span>order: {props.pokemon.order}</span>
+            </Grid>
+            <Grid item xs={3}>
+              <span>moves: {props.pokemon.moves.length}</span>
+            </Grid>
+            <Grid item xs={3}>
+              <span>abilities: {props.pokemon.abilities.length}</span>
+            </Grid>
+            <Grid item xs={3}>
+              <span>experience: {props.pokemon.base_experience}</span>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Paper>

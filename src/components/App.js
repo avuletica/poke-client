@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import HomePage from './home/HomePage';
+import HomePage from './content/HomePage';
 import Sidebar from './sidebar/Sidebar';
 import Grid from 'material-ui/Grid';
 import Header from './common/Header';
@@ -14,7 +14,7 @@ class App extends Component {
           <Grid item xs={1}>
             <Sidebar />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={7}>
             <Header xs={12} />
             <HomePage xs={12} />
           </Grid>

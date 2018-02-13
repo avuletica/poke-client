@@ -5,7 +5,6 @@ import {
   FormControl,
   FormControlLabel,
   FormGroup,
-  FormHelperText,
   FormLabel,
 } from 'material-ui/Form';
 import Checkbox from 'material-ui/Checkbox';
@@ -24,10 +23,8 @@ class TypeGroupFilter extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
-
     return (
-      <FormControl component="fieldset" style={{marginLeft: 24}}>
+      <FormControl component="fieldset" style={{ marginLeft: 24 }}>
         <FormLabel component="legend">Type</FormLabel>
         <FormGroup>
           <FormControlLabel
