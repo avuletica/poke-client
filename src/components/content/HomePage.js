@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as pokemonActions from '../../redux/actions/pokemonActions';
+import * as pokemonActions from '../../redux/actions/pokemons';
 import PaperSheet from '../common/PaperSheet';
 
 export class HomePage extends Component {
+  componentDidMount() {
+    this.props.actions.loadPokemons();
+  }
+
   render() {
     if (this.props.pokemons.length > 0) {
       return (

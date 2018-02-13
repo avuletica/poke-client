@@ -1,10 +1,10 @@
 import React from 'react';
-import FloatingActionButton from './FloatingActionButton';
+import {FilterLinks} from './filters/FilterLinks';
 
 const Header = () => {
   return (
     <div style={{ marginBottom: 30 }}>
-      <FloatingActionButton />
+      <FilterLinks />
       <hr />
     </div>
   );

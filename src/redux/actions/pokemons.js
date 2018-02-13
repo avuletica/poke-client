@@ -5,6 +5,10 @@ export function loadPokemonsSuccess(pokemons) {
   return { type: types.LOAD_POKEMONS_SUCCESS, pokemons };
 }
 
+export function setVisibilityFilter(filter) {
+  return { type: types.SET_VISIBILITY_FILTER, filter };
+}
+
 function getRandomIntFromInterval(min, max) {
   return (Math.floor(Math.random() * (max - min + 1)) + min).toString();
 }
@@ -14,7 +18,7 @@ export function loadPokemons() {
     let url = 'https://pokeapi.co/api/v2/pokemon/';
     let promises = [];
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 2; i++) {
       let endpoint = url + getRandomIntFromInterval(1, 802);
       promises.push(axios.get(endpoint));
     }

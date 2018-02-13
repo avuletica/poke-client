@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import GenderGroupFilter from '../common/ExperienceGroupFilter';
-import TypeGroupFilter from '../common/TypeGroupFilter';
-import SizeGroupFilter from '../common/SizeGroupFilter';
+import GenderGroupFilter from '../common/filters/ExperienceGroupFilter';
+import TypeGroupFilter from '../common/filters/TypeGroupFilter';
+import SizeGroupFilter from '../common/filters/SizeGroupFilter';
 
 export class Sidebar extends Component {
   render() {
