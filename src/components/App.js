@@ -10,10 +10,10 @@ class App extends Component {
     return (
       <div className="App">
         <Grid container spacing={0}>
-          <Grid item xs={4}>
+          <Grid item xs={3}>
             <Sidebar />
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={7}>
             <Header xs={12} />
             <HomePage xs={12} />
           </Grid>
