@@ -34,7 +34,7 @@ class SizeGroupFilter extends React.Component {
     const { classes } = this.props;
 
     return (
-      <form className={classes.root} autoComplete="off" style={{marginLeft: 20}}>
+      <form className={classes.root} autoComplete="off" style={{marginLeft: 16}}>
         <FormControl className={classes.formControl}>
           <InputLabel htmlFor="size-simple">Size</InputLabel>
           <Select

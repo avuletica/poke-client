@@ -9,6 +9,7 @@ const styles = theme => ({
     paddingTop: 16,
     paddingBottom: 16,
     marginTop: theme.spacing.unit * 3,
+    marginLeft: theme.spacing.unit * 3,
   }),
 });
 
@@ -28,16 +29,16 @@ function PaperSheet(props) {
               <span>id: {props.pokemon.id}</span>
             </Grid>
             <Grid item xs={3}>
-              <span>
-                type:{' '}
-                {props.pokemon.types.map(item => item.type.name).join(', ')}
-              </span>
-            </Grid>
-            <Grid item xs={3}>
               <span>height: {props.pokemon.height}</span>
             </Grid>
             <Grid item xs={3}>
               <span>weight: {props.pokemon.weight}</span>
+            </Grid>
+            <Grid item xs={3}>
+              <span>
+                type:{' '}
+                {props.pokemon.types.map(item => item.type.name).join(', ')}
+              </span>
             </Grid>
           </Grid>
         </Grid>

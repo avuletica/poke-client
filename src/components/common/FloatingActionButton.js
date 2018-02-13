@@ -15,7 +15,7 @@ function FloatingActionButton(props) {
   const { classes } = props;
   // TODO: refactor
   return (
-    <div>
+    <div style={{marginLeft: 20}}>
       <Button
         variant="fab"
         color="primary"
