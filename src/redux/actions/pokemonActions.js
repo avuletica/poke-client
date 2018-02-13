@@ -14,7 +14,7 @@ export function loadPokemons() {
     let url = 'https://pokeapi.co/api/v2/pokemon/';
     let promises = [];
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 10; i++) {
       let endpoint = url + getRandomIntFromInterval(1, 802);
       promises.push(axios.get(endpoint));
     }
