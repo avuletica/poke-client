@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
-import * as pokemonActions from '../../../redux/actions/pokemons';
+import * as pokemonActions from '../../redux/actions/pokemons';
 import { connect } from 'react-redux';
 import { Button } from 'material-ui';
+import * as types from '../../redux/actions/types';
 
 const buttonStyle = {
   margin: 5,
@@ -11,8 +12,24 @@ const buttonStyle = {
 };
 
 export class FilterLinks extends Component {
-  handleFilter = () => {
-    console.log('test');
+  handleGroupOneFilter = () => {
+    this.props.actions.setVisibilityFilter(types.SHOW_GROUP_ONE_POKEMONS);
+  };
+
+  handleGroupTwoFilter = () => {
+    this.props.actions.setVisibilityFilter(types.SHOW_GROUP_TWO_POKEMONS);
+  };
+
+  handleGroupThreeFilter = () => {
+    this.props.actions.setVisibilityFilter(types.SHOW_GROUP_THREE_POKEMONS);
+  };
+
+  handleGroupFourFilter = () => {
+    this.props.actions.setVisibilityFilter(types.SHOW_GROUP_FOUR_POKEMONS);
+  };
+
+  handleResetFilter = () => {
+    this.props.actions.setVisibilityFilter(types.SHOW_ALL_POKEMONS);
   };
 
   render() {
@@ -23,7 +40,7 @@ export class FilterLinks extends Component {
           color="primary"
           aria-label="add"
           style={buttonStyle}
-          onClick={this.handleFilter}
+          onClick={this.handleGroupOneFilter}
         >
           1
         </Button>
@@ -32,7 +49,7 @@ export class FilterLinks extends Component {
           color="primary"
           aria-label="add"
           style={buttonStyle}
-          onClick={this.handleFilter}
+          onClick={this.handleGroupTwoFilter}
         >
           2
         </Button>
@@ -41,7 +58,7 @@ export class FilterLinks extends Component {
           color="primary"
           aria-label="add"
           style={buttonStyle}
-          onClick={this.handleFilter}
+          onClick={this.handleGroupThreeFilter}
         >
           3
         </Button>
@@ -50,9 +67,17 @@ export class FilterLinks extends Component {
           color="primary"
           aria-label="add"
           style={buttonStyle}
-          onClick={this.handleFilter}
+          onClick={this.handleGroupFourFilter}
         >
           4
+        </Button>
+        <Button
+          variant="fab"
+          color="secondary"
+          aria-label="add"
+          onClick={this.handleResetFilter}
+        >
+          R
         </Button>
       </div>
     );

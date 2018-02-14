@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import pokemons from './pokemons';
-import visibilityFilter from './visibilityFilter';
+import { getVisiblePokemons, pokemons, visibilityFilter } from './pokemons';
 
 const rootReducer = combineReducers({
   pokemons,
   visibilityFilter,
+  getVisiblePokemons,
 });
 
 export default rootReducer;

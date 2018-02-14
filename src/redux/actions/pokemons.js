@@ -1,4 +1,4 @@
-import * as types from './actionTypes';
+import * as types from './types';
 import axios from 'axios';
 
 export function loadPokemonsSuccess(pokemons) {
@@ -18,7 +18,7 @@ export function loadPokemons() {
     let url = 'https://pokeapi.co/api/v2/pokemon/';
     let promises = [];
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 5; i++) {
       let endpoint = url + getRandomIntFromInterval(1, 802);
       promises.push(axios.get(endpoint));
     }
