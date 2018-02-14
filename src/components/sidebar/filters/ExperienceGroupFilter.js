@@ -4,6 +4,10 @@ import { withStyles } from 'material-ui/styles';
 import Radio, { RadioGroup } from 'material-ui/Radio';
 import { FormControl, FormControlLabel, FormLabel } from 'material-ui/Form';
 import utils from '../../../utils/utils';
+import {connect} from "react-redux";
+import {FilterLinks} from "../FilterLinks";
+import {bindActionCreators} from "redux/index";
+import * as pokemonActions from "../../../redux/actions/pokemons";
 
 const styles = theme => ({
   root: {
@@ -23,7 +27,13 @@ class ExperienceGroupFilter extends React.Component {
   };
 
   handleChange = (event, value) => {
+    console.log('this.props.actions: ', this.props.actions);
     this.setState({ value });
+    switch (value) {
+        case value === utils.experienceGroup.value.all:
+          return;
+
+    }
   };
 
   render() {
@@ -70,4 +80,16 @@ ExperienceGroupFilter.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ExperienceGroupFilter);
+function mapStateToProps(state, ownProps) {
+    return {
+        pokemons: state.pokemons,
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(pokemonActions, dispatch),
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExperienceGroupFilter);
