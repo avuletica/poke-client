@@ -25,6 +25,10 @@ export const getVisiblePokemons = (
   switch (filter) {
     case types.SHOW_ALL_POKEMONS:
       return pokemons;
+    case types.SHOW_LOW_EXPERIENCE_POKEMONS:
+      return pokemons.filter(pokemon => pokemon.base_experience < 200);
+    case types.SHOW_HIGH_EXPERIENCE_POKEMONS:
+      return pokemons.filter(pokemon => pokemon.base_experience >= 200);
     case types.SHOW_GROUP_ONE_POKEMONS:
       return pokemons.filter(
         pokemon =>

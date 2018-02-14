@@ -1,13 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
+import * as types from '../../../redux/actions/types';
 import Radio, { RadioGroup } from 'material-ui/Radio';
 import { FormControl, FormControlLabel, FormLabel } from 'material-ui/Form';
 import utils from '../../../utils/utils';
-import {connect} from "react-redux";
-import {FilterLinks} from "../FilterLinks";
-import {bindActionCreators} from "redux/index";
-import * as pokemonActions from "../../../redux/actions/pokemons";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as pokemonActions from '../../../redux/actions/pokemons';
 
 const styles = theme => ({
   root: {
@@ -27,30 +25,34 @@ class ExperienceGroupFilter extends React.Component {
   };
 
   handleChange = (event, value) => {
-    console.log('this.props.actions: ', this.props.actions);
     this.setState({ value });
     switch (value) {
-        case value === utils.experienceGroup.value.all:
-          return;
-
+      case utils.experienceGroup.value.all:
+        return this.props.actions.setVisibilityFilter(types.SHOW_ALL_POKEMONS);
+      case utils.experienceGroup.value.low:
+        return this.props.actions.setVisibilityFilter(
+          types.SHOW_LOW_EXPERIENCE_POKEMONS,
+        );
+      case utils.experienceGroup.value.high:
+        return this.props.actions.setVisibilityFilter(
+          types.SHOW_HIGH_EXPERIENCE_POKEMONS,
+        );
     }
   };
 
   render() {
-    const { classes } = this.props;
-
     return (
-      <div className={classes.root}>
+      <div className={styles.root}>
         <FormControl
           component="fieldset"
           required
-          className={classes.formControl}
+          className={styles.formControl}
         >
           <FormLabel component="legend">Experience</FormLabel>
           <RadioGroup
             aria-label="gender"
             name="gender"
-            className={classes.group}
+            className={styles.group}
             value={this.state.value}
             onChange={this.handleChange}
           >
@@ -76,20 +78,16 @@ class ExperienceGroupFilter extends React.Component {
   }
 }
 
-ExperienceGroupFilter.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
 function mapStateToProps(state, ownProps) {
-    return {
-        pokemons: state.pokemons,
-    };
+  return {};
 }
 
 function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(pokemonActions, dispatch),
-    };
+  return {
+    actions: bindActionCreators(pokemonActions, dispatch),
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExperienceGroupFilter);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  ExperienceGroupFilter,
+);
