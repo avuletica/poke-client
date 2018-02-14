@@ -20,7 +20,7 @@ const styles = theme => ({
   },
 });
 
-class SizeGroupFilter extends React.Component {
+class AbilitiesGroupFilter extends React.Component {
   state = {
     size: '',
     name: '',
@@ -34,22 +34,25 @@ class SizeGroupFilter extends React.Component {
     const { classes } = this.props;
 
     return (
-      <form className={classes.root} autoComplete="off" style={{marginLeft: 16}}>
+      <form
+        className={classes.root}
+        autoComplete="off"
+        style={{ marginLeft: 16 }}
+      >
         <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="size-simple">Size</InputLabel>
+          <InputLabel htmlFor="abilities-simple">Abilities</InputLabel>
           <Select
             value={this.state.size}
             onChange={this.handleChange}
             inputProps={{
-              name: 'size',
-              id: 'size-simple',
+              name: 'abilities',
+              id: 'abilities-simple',
             }}
           >
             <MenuItem value={0}>All</MenuItem>
-            <MenuItem value={10}>Tall</MenuItem>
-            <MenuItem value={20}>Short</MenuItem>
-            <MenuItem value={30}>Heavy</MenuItem>
-            <MenuItem value={30}>Thin</MenuItem>
+            <MenuItem value={1}>One</MenuItem>
+            <MenuItem value={2}>Two</MenuItem>
+            <MenuItem value={3}>Three</MenuItem>
           </Select>
         </FormControl>
       </form>
@@ -57,11 +60,11 @@ class SizeGroupFilter extends React.Component {
   }
 }
 
-SizeGroupFilter.propTypes = {
+AbilitiesGroupFilter.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SizeGroupFilter);
+export default withStyles(styles)(AbilitiesGroupFilter);
 
 /*
 * <MenuItem value={1}>All</MenuItem>
