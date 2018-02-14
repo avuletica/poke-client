@@ -1,5 +1,6 @@
 import * as types from './types';
 import axios from 'axios';
+import utils from '../../utils/utils';
 
 export function loadPokemonsSuccess(pokemons) {
   return { type: types.LOAD_POKEMONS_SUCCESS, pokemons };
@@ -15,7 +16,7 @@ function getRandomIntFromInterval(min, max) {
 
 export function loadPokemons() {
   return function(dispatch) {
-    let url = 'https://pokeapi.co/api/v2/pokemon/';
+    let url = utils.endpoints.pokemons.getPokemonById;
     let promises = [];
 
     for (let i = 0; i < 5; i++) {

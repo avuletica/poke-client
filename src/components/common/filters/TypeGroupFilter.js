@@ -8,14 +8,17 @@ import {
   FormLabel,
 } from 'material-ui/Form';
 import Checkbox from 'material-ui/Checkbox';
+import utils from '../../../utils/utils';
 
 const styles = {};
 
-class TypeGroupFilter extends React.Component {
+class typeGroup extends React.Component {
   state = {
-    fire: true,
+    fire: false,
     water: false,
-    earth: true,
+    ground: false,
+    electric: false,
+    flying: false,
   };
 
   handleChange = name => (event, checked) => {
@@ -31,31 +34,51 @@ class TypeGroupFilter extends React.Component {
             control={
               <Checkbox
                 checked={this.state.fire}
-                onChange={this.handleChange('fire')}
-                value="fire"
+                onChange={this.handleChange(utils.typeGroup.value.fire)}
+                value={utils.typeGroup.value.fire}
               />
             }
-            label="Fire"
+            label={utils.typeGroup.label.fire}
           />
           <FormControlLabel
             control={
               <Checkbox
                 checked={this.state.water}
-                onChange={this.handleChange('water')}
-                value="water"
+                onChange={this.handleChange(utils.typeGroup.value.water)}
+                value={utils.typeGroup.value.water}
               />
             }
-            label="Water"
+            label={utils.typeGroup.label.water}
           />
           <FormControlLabel
             control={
               <Checkbox
-                checked={this.state.earth}
-                onChange={this.handleChange('earth')}
-                value="Earth"
+                checked={this.state.ground}
+                onChange={this.handleChange(utils.typeGroup.value.ground)}
+                value={utils.typeGroup.value.ground}
               />
             }
-            label="Earth"
+            label={utils.typeGroup.label.ground}
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={this.state.electric}
+                onChange={this.handleChange(utils.typeGroup.value.electric)}
+                value={utils.typeGroup.value.electric}
+              />
+            }
+            label={utils.typeGroup.label.electric}
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={this.state.flying}
+                onChange={this.handleChange(utils.typeGroup.value.flying)}
+                value={utils.typeGroup.value.flying}
+              />
+            }
+            label={utils.typeGroup.label.flying}
           />
         </FormGroup>
       </FormControl>
@@ -63,8 +86,8 @@ class TypeGroupFilter extends React.Component {
   }
 }
 
-TypeGroupFilter.propTypes = {
+typeGroup.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(TypeGroupFilter);
+export default withStyles(styles)(typeGroup);

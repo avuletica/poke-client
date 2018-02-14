@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Radio, { RadioGroup } from 'material-ui/Radio';
 import { FormControl, FormControlLabel, FormLabel } from 'material-ui/Form';
+import utils from '../../../utils/utils';
 
 const styles = theme => ({
   root: {
@@ -18,7 +19,7 @@ const styles = theme => ({
 
 class ExperienceGroupFilter extends React.Component {
   state = {
-    value: 'all',
+    value: utils.experienceGroup.value.all,
   };
 
   handleChange = (event, value) => {
@@ -43,9 +44,21 @@ class ExperienceGroupFilter extends React.Component {
             value={this.state.value}
             onChange={this.handleChange}
           >
-            <FormControlLabel value="all" control={<Radio />} label="All" />
-            <FormControlLabel value="high" control={<Radio />} label="High" />
-            <FormControlLabel value="low" control={<Radio />} label="Low" />
+            <FormControlLabel
+              value={utils.experienceGroup.value.all}
+              control={<Radio />}
+              label={utils.experienceGroup.label.all}
+            />
+            <FormControlLabel
+              value={utils.experienceGroup.value.low}
+              control={<Radio />}
+              label={utils.experienceGroup.label.low}
+            />
+            <FormControlLabel
+              value={utils.experienceGroup.value.high}
+              control={<Radio />}
+              label={utils.experienceGroup.label.high}
+            />
           </RadioGroup>
         </FormControl>
       </div>

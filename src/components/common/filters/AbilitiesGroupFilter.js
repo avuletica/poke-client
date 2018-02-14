@@ -5,6 +5,7 @@ import { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
+import utils from '../../../utils/utils';
 
 const styles = theme => ({
   root: {
@@ -49,10 +50,18 @@ class AbilitiesGroupFilter extends React.Component {
               id: 'abilities-simple',
             }}
           >
-            <MenuItem value={0}>All</MenuItem>
-            <MenuItem value={1}>One</MenuItem>
-            <MenuItem value={2}>Two</MenuItem>
-            <MenuItem value={3}>Three</MenuItem>
+            <MenuItem value={utils.abilityGroup.value.all}>
+              {utils.abilityGroup.label.all}
+            </MenuItem>
+            <MenuItem value={utils.abilityGroup.value.one}>
+              {utils.abilityGroup.label.one}
+            </MenuItem>
+            <MenuItem value={utils.abilityGroup.value.two}>
+              {utils.abilityGroup.label.two}
+            </MenuItem>
+            <MenuItem value={utils.abilityGroup.value.three}>
+              {utils.abilityGroup.label.three}
+            </MenuItem>
           </Select>
         </FormControl>
       </form>
@@ -65,11 +74,3 @@ AbilitiesGroupFilter.propTypes = {
 };
 
 export default withStyles(styles)(AbilitiesGroupFilter);
-
-/*
-* <MenuItem value={1}>All</MenuItem>
-            <MenuItem value={2}>Tall</MenuItem>
-            <MenuItem value={3}>Small</MenuItem>
-            <MenuItem value={4}>Heavy</MenuItem>
-            <MenuItem value={5}>Light</MenuItem>
-            */
