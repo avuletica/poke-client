@@ -13,23 +13,63 @@ const buttonStyle = {
 
 export class FilterLinks extends Component {
   handleGroupOneFilter = () => {
-    this.props.actions.setVisibilityFilter(types.SHOW_GROUP_ONE_POKEMONS);
+    const payload = {
+      type: types.SHOW_GROUP_ONE_POKEMONS,
+      multiFilter: {
+        abilities: ['all'],
+        experience: ['all'],
+        type: ['all'],
+      },
+    };
+    this.props.actions.setVisibilityFilter(payload);
   };
 
   handleGroupTwoFilter = () => {
-    this.props.actions.setVisibilityFilter(types.SHOW_GROUP_TWO_POKEMONS);
+    const payload = {
+      type: types.SHOW_GROUP_TWO_POKEMONS,
+      multiFilter: {
+        abilities: ['all'],
+        experience: ['all'],
+        type: ['all'],
+      },
+    };
+    this.props.actions.setVisibilityFilter(payload);
   };
 
   handleGroupThreeFilter = () => {
-    this.props.actions.setVisibilityFilter(types.SHOW_GROUP_THREE_POKEMONS);
+    const payload = {
+      type: types.SHOW_GROUP_THREE_POKEMONS,
+      multiFilter: {
+        abilities: ['all'],
+        experience: ['all'],
+        type: ['all'],
+      },
+    };
+    this.props.actions.setVisibilityFilter(payload);
   };
 
   handleGroupFourFilter = () => {
-    this.props.actions.setVisibilityFilter(types.SHOW_GROUP_FOUR_POKEMONS);
+    const payload = {
+      type: types.SHOW_GROUP_FOUR_POKEMONS,
+      multiFilter: {
+        abilities: ['all'],
+        experience: ['all'],
+        type: ['ice', 'flying'],
+      },
+    };
+    this.props.actions.setVisibilityFilter(payload);
   };
 
   handleResetFilter = () => {
-    this.props.actions.setVisibilityFilter(types.SHOW_ALL_POKEMONS);
+    const payload = {
+      type: types.SHOW_ALL_POKEMONS,
+      multiFilter: {
+        abilities: ['all'],
+        experience: ['all'],
+        type: ['all'],
+      },
+    };
+    this.props.actions.setVisibilityFilter(payload);
   };
 
   render() {

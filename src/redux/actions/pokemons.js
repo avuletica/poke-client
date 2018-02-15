@@ -6,8 +6,12 @@ export function loadPokemonsSuccess(pokemons) {
   return { type: types.LOAD_POKEMONS_SUCCESS, pokemons };
 }
 
-export function setVisibilityFilter(filter) {
-  return { type: types.SET_VISIBILITY_FILTER, filter };
+export function setVisibilityFilter(payload) {
+  return {
+    type: types.SET_VISIBILITY_FILTER,
+    multiFilterType: payload.type,
+    multiFilter: payload.multiFilter,
+  };
 }
 
 function getRandomIntFromInterval(min, max) {
