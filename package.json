@@ -23,6 +23,7 @@
   "devDependencies": {
     "prettier": "1.10.2",
     "redux-devtools": "^3.4.1",
+    "redux-devtools-extension": "^2.13.2",
     "redux-immutable-state-invariant": "^2.1.0"
   }
 }
