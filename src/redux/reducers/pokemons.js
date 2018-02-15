@@ -2,8 +2,10 @@ import * as types from '../actions/types';
 
 export const pokemons = (state = [], action) => {
   switch (action.type) {
-    case types.LOAD_POKEMONS_SUCCESS:
+    case types.FETCH_POKEMONS_SUCCESS:
       return action.pokemons;
+    case types.FETCH_POKEMONS_FAILURE:
+      return [];
     default:
       return state;
   }

@@ -2,8 +2,12 @@ import * as types from './types';
 import axios from 'axios';
 import utils from '../../utils/utils';
 
-export function loadPokemonsSuccess(pokemons) {
-  return { type: types.LOAD_POKEMONS_SUCCESS, pokemons };
+export function fetchPokemonsSuccess(pokemons) {
+  return { type: types.FETCH_POKEMONS_SUCCESS, pokemons };
+}
+
+export function fetchPokemonsFailure(error) {
+  return { type: types.FETCH_POKEMONS_FAILURE, error };
 }
 
 export function setVisibilityFilter(payload) {
@@ -33,9 +37,9 @@ export function loadPokemons() {
       .then(
         axios.spread((...data) => {
           const pokemons = data.map(data => data.data);
-          dispatch(loadPokemonsSuccess(pokemons));
+          dispatch(fetchPokemonsSuccess(pokemons));
         }),
       )
-      .catch(error => console.log(error));
+      .catch(error => fetchPokemonsFailure(error));
   };
 }
