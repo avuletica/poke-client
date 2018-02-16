@@ -24,7 +24,7 @@ const initialFilter = {
 export const visibilityFilter = (state = initialFilter, action) => {
   switch (action.type) {
     case types.SET_VISIBILITY_FILTER:
-      return action;
+      return Object.assign({}, state, action);
     default:
       return state;
   }
