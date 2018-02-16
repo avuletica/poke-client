@@ -14,6 +14,7 @@ import AbilityTypes from '../sidebar/filters/AbilityTypes';
 import NumberOfAbilities from '../sidebar/filters/NumberOfAbilities';
 import Experience from '../sidebar/filters/Experience';
 import Content from './Content';
+import FilterLinks from '../common/FilterLinks';
 
 const drawerWidth = 240;
 
@@ -143,6 +144,7 @@ class ResponsiveDrawer extends React.Component {
           </Hidden>
           <main className={classes.content}>
             <Typography noWrap>
+              <FilterLinks />
               <Content />
             </Typography>
           </main>

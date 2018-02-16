@@ -7,8 +7,6 @@ import * as types from '../../redux/actions/types';
 
 const buttonStyle = {
   margin: 5,
-  backgroundColor: '#54d213',
-  color: '#fff',
 };
 
 export class FilterLinks extends Component {
