@@ -16,7 +16,7 @@ const initialFilter = {
   multiFilterType: '',
   numberOfAbilities: 'all',
   experience: 'all',
-  abilityTypes: 'all',
+  abilityTypes: [],
 };
 
 export const visibilityFilter = (state = initialFilter, action) => {
@@ -33,6 +33,8 @@ export const getVisiblePokemons = (pokemons = [], action) => {
     case types.SHOW_ALL_POKEMONS:
       return pokemons;
     case types.SET_MULTIPLE_FILTERS: {
+      if (pokemons.length === 0) return pokemons;
+
       let visiblePokemons = [...pokemons];
 
       if (action.experience === 'low') {
@@ -45,13 +47,13 @@ export const getVisiblePokemons = (pokemons = [], action) => {
         );
       }
 
-      if (action.numberOfAbilities !== 'all' && visiblePokemons.length > 0) {
+      if (action.numberOfAbilities !== 'all') {
         visiblePokemons = visiblePokemons.filter(
           pokemon => pokemon.abilities.length === action.numberOfAbilities,
         );
       }
 
-      if (action.abilityTypes !== 'all') {
+      if (action.abilityTypes.length !== 0) {
         visiblePokemons = visiblePokemons.filter(pokemon =>
           pokemon.types.some(
             word => action.abilityTypes.indexOf(word.type.name) >= 0,

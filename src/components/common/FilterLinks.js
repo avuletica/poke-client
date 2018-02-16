@@ -35,7 +35,7 @@ export class FilterLinks extends Component {
       type: types.SET_MULTIPLE_FILTERS,
       experience: 'all',
       numberOfAbilities: 'all',
-      abilityTypes: ['normal', 'electric', 'bug', 'fighting', 'grass'],
+      abilityTypes: ['fire', 'ground', 'flying'],
     };
     this.props.actions.setVisibilityFilter(payload);
   };
@@ -44,7 +44,7 @@ export class FilterLinks extends Component {
     const payload = {
       type: types.SET_MULTIPLE_FILTERS,
       experience: 'all',
-      abilityTypes: ['ice', 'flying', 'ground'],
+      abilityTypes: ['water', 'electric', 'flying'],
     };
     this.props.actions.setVisibilityFilter(payload);
   };
@@ -54,7 +54,7 @@ export class FilterLinks extends Component {
       type: types.SHOW_ALL_POKEMONS,
       numberOfAbilities: 'all',
       experience: 'all',
-      abilityTypes: 'all',
+      abilityTypes: [],
     };
     this.props.actions.setVisibilityFilter(payload);
   };

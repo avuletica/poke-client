@@ -14,28 +14,19 @@ import * as pokemonActions from '../../../redux/actions/pokemons';
 import * as types from '../../../redux/actions/types';
 
 class AbilityTypes extends React.Component {
-  state = {
-    fire: false,
-    water: false,
-    ground: false,
-    electric: false,
-    flying: false,
-  };
-
-  handleChange = name => (event, checked) => {
-    const payload = {
+  handleChange = type => () => {
+    let payload = {
       type: types.SET_MULTIPLE_FILTERS,
-      abilityTypes: [],
+      abilityTypes: [...this.props.visibilityFilter.abilityTypes],
     };
 
-    this.setState({ [name]: checked }, () => {
-      for (const key in this.state) {
-        if (this.state[key]) payload.abilityTypes.push(key);
-      }
-      if (payload.abilityTypes.length === 0) payload.abilityTypes = 'all';
+    if (payload.abilityTypes.includes(type)) {
+      payload.abilityTypes = payload.abilityTypes.filter(item => item !== type);
+    } else {
+      payload.abilityTypes.push(type);
+    }
 
-      return this.props.actions.setVisibilityFilter(payload);
-    });
+    return this.props.actions.setVisibilityFilter(payload);
   };
 
   render() {
@@ -46,7 +37,9 @@ class AbilityTypes extends React.Component {
           <FormControlLabel
             control={
               <Checkbox
-                checked={this.state.fire}
+                checked={this.props.visibilityFilter.abilityTypes.includes(
+                  'fire',
+                )}
                 onChange={this.handleChange(utils.typeGroup.value.fire)}
                 value={utils.typeGroup.value.fire}
               />
@@ -56,7 +49,9 @@ class AbilityTypes extends React.Component {
           <FormControlLabel
             control={
               <Checkbox
-                checked={this.state.water}
+                checked={this.props.visibilityFilter.abilityTypes.includes(
+                  'water',
+                )}
                 onChange={this.handleChange(utils.typeGroup.value.water)}
                 value={utils.typeGroup.value.water}
               />
@@ -66,7 +61,9 @@ class AbilityTypes extends React.Component {
           <FormControlLabel
             control={
               <Checkbox
-                checked={this.state.ground}
+                checked={this.props.visibilityFilter.abilityTypes.includes(
+                  'ground',
+                )}
                 onChange={this.handleChange(utils.typeGroup.value.ground)}
                 value={utils.typeGroup.value.ground}
               />
@@ -76,7 +73,9 @@ class AbilityTypes extends React.Component {
           <FormControlLabel
             control={
               <Checkbox
-                checked={this.state.electric}
+                checked={this.props.visibilityFilter.abilityTypes.includes(
+                  'electric',
+                )}
                 onChange={this.handleChange(utils.typeGroup.value.electric)}
                 value={utils.typeGroup.value.electric}
               />
@@ -86,7 +85,9 @@ class AbilityTypes extends React.Component {
           <FormControlLabel
             control={
               <Checkbox
-                checked={this.state.flying}
+                checked={this.props.visibilityFilter.abilityTypes.includes(
+                  'flying',
+                )}
                 onChange={this.handleChange(utils.typeGroup.value.flying)}
                 value={utils.typeGroup.value.flying}
               />
