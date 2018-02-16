@@ -14,7 +14,7 @@ export const pokemons = (state = [], action) => {
 const initialFilter = {
   type: types.SHOW_ALL_POKEMONS,
   multiFilterType: '',
-  abilities: 'all',
+  numberOfAbilities: 'all',
   experience: 'all',
   abilityTypes: 'all',
 };
@@ -32,32 +32,35 @@ export const getVisiblePokemons = (pokemons = [], action) => {
   switch (action.multiFilterType) {
     case types.SHOW_ALL_POKEMONS:
       return pokemons;
-    case types.SHOW_LOW_EXPERIENCE_POKEMONS:
-      return pokemons.filter(pokemon => pokemon.base_experience < 200);
-    case types.SHOW_HIGH_EXPERIENCE_POKEMONS:
-      return pokemons.filter(pokemon => pokemon.base_experience >= 200);
-    case types.SHOW_GROUP_ONE_POKEMONS:
-      return pokemons.filter(
-        pokemon =>
-          pokemon.base_experience > 100 && pokemon.abilities.length === 3,
-      );
-    case types.SHOW_GROUP_TWO_POKEMONS:
-      return pokemons.filter(
-        pokemon => pokemon.base_experience < 100 && pokemon.weight > 100,
-      );
-    case types.SHOW_GROUP_THREE_POKEMONS:
-      return pokemons.filter(
-        pokemon =>
-          pokemon.abilities.length < 3 &&
-          pokemon.moves.length > 50 &&
-          pokemon.height > 10,
-      );
-    case types.SHOW_GROUP_FOUR_POKEMONS:
-      return pokemons.filter(pokemon =>
-        pokemon.types.some(
-          word => action.abilityTypes.indexOf(word.type.name) >= 0,
-        ),
-      );
+    case types.SET_MULTIPLE_FILTERS: {
+      let visiblePokemons = [...pokemons];
+
+      if (action.experience === 'low') {
+        visiblePokemons = pokemons.filter(
+          pokemon => pokemon.base_experience < 200,
+        );
+      } else if (action.experience === 'high') {
+        visiblePokemons = pokemons.filter(
+          pokemon => pokemon.base_experience > 200,
+        );
+      }
+
+      if (action.numberOfAbilities !== 'all' && visiblePokemons.length > 0) {
+        visiblePokemons = visiblePokemons.filter(
+          pokemon => pokemon.abilities.length === action.numberOfAbilities,
+        );
+      }
+
+      if (action.abilityTypes !== 'all') {
+        visiblePokemons = visiblePokemons.filter(pokemon =>
+          pokemon.types.some(
+            word => action.abilityTypes.indexOf(word.type.name) >= 0,
+          ),
+        );
+      }
+
+      return visiblePokemons;
+    }
     default:
       return pokemons;
   }

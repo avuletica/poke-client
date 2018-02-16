@@ -27,12 +27,13 @@ class ExperienceGroupFilter extends React.Component {
 
   handleChange = (event, value) => {
     this.setState({ value });
+    console.log('called');
 
     switch (value) {
       case utils.experienceGroup.value.all: {
         const payload = {
           type: types.SHOW_ALL_POKEMONS,
-          abilities: 'all',
+          numberOfAbilities: 'all',
           experience: 'all',
           abilityTypes: 'all',
         };
@@ -41,7 +42,7 @@ class ExperienceGroupFilter extends React.Component {
 
       case utils.experienceGroup.value.low: {
         const payload = {
-          type: types.SHOW_LOW_EXPERIENCE_POKEMONS,
+          type: types.SET_MULTIPLE_FILTERS,
           experience: 'low',
         };
         return this.props.actions.setVisibilityFilter(payload);
@@ -49,7 +50,7 @@ class ExperienceGroupFilter extends React.Component {
 
       case utils.experienceGroup.value.high: {
         const payload = {
-          type: types.SHOW_HIGH_EXPERIENCE_POKEMONS,
+          type: types.SET_MULTIPLE_FILTERS,
           experience: 'high',
         };
         return this.props.actions.setVisibilityFilter(payload);

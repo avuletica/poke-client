@@ -46,8 +46,8 @@ class AbilitiesGroupFilter extends React.Component {
             value={this.state.size}
             onChange={this.handleChange}
             inputProps={{
-              name: 'abilities',
-              id: 'abilities-simple',
+              name: 'numberOfAbilities',
+              id: 'numberOfAbilities-simple',
             }}
           >
             <MenuItem value={utils.abilityGroup.value.all}>

@@ -16,8 +16,11 @@ export function setVisibilityFilter(payload) {
     multiFilterType: payload.type,
   };
 
-  if (payload.abilities)
-    actionCreator = { ...actionCreator, abilities: payload.abilities };
+  if (payload.numberOfAbilities)
+    actionCreator = {
+      ...actionCreator,
+      numberOfAbilities: payload.numberOfAbilities,
+    };
   if (payload.experience)
     actionCreator = { ...actionCreator, experience: payload.experience };
   if (payload.abilityTypes)
