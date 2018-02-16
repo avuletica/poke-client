@@ -11,6 +11,7 @@ import utils from '../../../utils/utils';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as pokemonActions from '../../../redux/actions/pokemons';
+import * as types from '../../../redux/actions/types';
 
 class TypeGroupFilter extends React.Component {
   state = {
@@ -22,7 +23,19 @@ class TypeGroupFilter extends React.Component {
   };
 
   handleChange = name => (event, checked) => {
-    this.setState({ [name]: checked });
+    const payload = {
+      type: types.SET_MULTIPLE_FILTERS,
+      abilityTypes: [],
+    };
+
+    this.setState({ [name]: checked }, () => {
+      for (const key in this.state) {
+        if (this.state[key]) payload.abilityTypes.push(key);
+      }
+      if (payload.abilityTypes.length === 0) payload.abilityTypes = 'all';
+
+      return this.props.actions.setVisibilityFilter(payload);
+    });
   };
 
   render() {
@@ -87,7 +100,9 @@ class TypeGroupFilter extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  return {};
+  return {
+    visibilityFilter: state.visibilityFilter,
+  };
 }
 
 function mapDispatchToProps(dispatch) {

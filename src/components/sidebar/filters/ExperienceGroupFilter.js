@@ -27,15 +27,12 @@ class ExperienceGroupFilter extends React.Component {
 
   handleChange = (event, value) => {
     this.setState({ value });
-    console.log('called');
 
     switch (value) {
       case utils.experienceGroup.value.all: {
         const payload = {
-          type: types.SHOW_ALL_POKEMONS,
-          numberOfAbilities: 'all',
+          type: types.SET_MULTIPLE_FILTERS,
           experience: 'all',
-          abilityTypes: 'all',
         };
         return this.props.actions.setVisibilityFilter(payload);
       }

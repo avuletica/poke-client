@@ -39,7 +39,7 @@ export function loadPokemons() {
     let randomIds = [];
     let promises = [];
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 15; i++) {
       let id = getRandomIntFromInterval(1, 802);
       if (!randomIds.includes(id)) randomIds.push(id);
       else i--;

@@ -18,7 +18,7 @@ export const utils = {
       fire: 'Fire',
       water: 'Water',
       ground: 'Ground',
-      electric: 'Normal',
+      electric: 'Electric',
       flying: 'Flying',
     },
     value: {
