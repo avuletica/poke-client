@@ -1,11 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
 import { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
-import utils from '../../../utils/utils';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as pokemonActions from '../../../redux/actions/pokemons';
+import * as types from '../../../redux/actions/types';
 
 const styles = theme => ({
   root: {
@@ -16,52 +17,39 @@ const styles = theme => ({
     margin: theme.spacing.unit,
     minWidth: 120,
   },
-  selectEmpty: {
-    marginTop: theme.spacing.unit * 2,
-  },
 });
 
 class NumberOfAbilities extends React.Component {
-  state = {
-    size: '',
-    name: '',
-  };
-
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ [event.target.name]: event.target.value }, () => {
+      let payload = {
+        type: types.SET_MULTIPLE_FILTERS,
+        numberOfAbilities: event.target.value,
+      };
+
+      return this.props.actions.setVisibilityFilter(payload);
+    });
   };
 
   render() {
-    const { classes } = this.props;
-
     return (
-      <form
-        className={classes.root}
-        autoComplete="off"
-        style={{ marginLeft: 16 }}
-      >
-        <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="abilities-simple">Abilities</InputLabel>
+      <form className={styles.root} autoComplete="off">
+        <FormControl className={styles.formControl}>
+          <InputLabel htmlFor="numberOfAbilities-simple">Abilities</InputLabel>
           <Select
-            value={this.state.size}
+            value={this.props.visibilityFilter.numberOfAbilities}
             onChange={this.handleChange}
             inputProps={{
               name: 'numberOfAbilities',
               id: 'numberOfAbilities-simple',
             }}
           >
-            <MenuItem value={utils.abilityGroup.value.all}>
-              {utils.abilityGroup.label.all}
+            <MenuItem value={'all'}>
+              <em>All abilities</em>
             </MenuItem>
-            <MenuItem value={utils.abilityGroup.value.one}>
-              {utils.abilityGroup.label.one}
-            </MenuItem>
-            <MenuItem value={utils.abilityGroup.value.two}>
-              {utils.abilityGroup.label.two}
-            </MenuItem>
-            <MenuItem value={utils.abilityGroup.value.three}>
-              {utils.abilityGroup.label.three}
-            </MenuItem>
+            <MenuItem value={1}>One</MenuItem>
+            <MenuItem value={2}>Two</MenuItem>
+            <MenuItem value={3}>Three</MenuItem>
           </Select>
         </FormControl>
       </form>
@@ -69,8 +57,16 @@ class NumberOfAbilities extends React.Component {
   }
 }
 
-NumberOfAbilities.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+function mapStateToProps(state, ownProps) {
+  return {
+    visibilityFilter: state.visibilityFilter,
+  };
+}
 
-export default withStyles(styles)(NumberOfAbilities);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(pokemonActions, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NumberOfAbilities);

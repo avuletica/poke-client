@@ -6,7 +6,7 @@ import NumberOfAbilities from './filters/NumberOfAbilities';
 export class Sidebar extends Component {
   render() {
     return (
-      <div style={{ borderRightStyle: 'groove', borderWidth: 1 }}>
+      <div>
         <Experience />
         <AbilityTypes />
         <NumberOfAbilities />

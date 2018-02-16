@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   FormControl,
   FormControlLabel,
@@ -31,7 +30,7 @@ class AbilityTypes extends React.Component {
 
   render() {
     return (
-      <FormControl component="fieldset" style={{ marginLeft: 24 }}>
+      <FormControl component="fieldset">
         <FormLabel component="legend">Type</FormLabel>
         <FormGroup>
           <FormControlLabel
