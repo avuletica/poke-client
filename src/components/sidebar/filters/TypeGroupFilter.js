@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
 import {
   FormControl,
   FormControlLabel,
@@ -9,10 +8,11 @@ import {
 } from 'material-ui/Form';
 import Checkbox from 'material-ui/Checkbox';
 import utils from '../../../utils/utils';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as pokemonActions from '../../../redux/actions/pokemons';
 
-const styles = {};
-
-class typeGroup extends React.Component {
+class TypeGroupFilter extends React.Component {
   state = {
     fire: false,
     water: false,
@@ -86,8 +86,18 @@ class typeGroup extends React.Component {
   }
 }
 
-typeGroup.propTypes = {
+TypeGroupFilter.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(typeGroup);
+function mapStateToProps(state, ownProps) {
+  return {};
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(pokemonActions, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TypeGroupFilter);
