@@ -25,12 +25,16 @@ function getRandomIntFromInterval(min, max) {
 export function loadPokemons() {
   return function(dispatch) {
     let url = utils.endpoints.pokemons.getPokemonById;
+    let randomIds = [];
     let promises = [];
 
     for (let i = 0; i < 5; i++) {
-      let endpoint = url + getRandomIntFromInterval(1, 802);
-      promises.push(axios.get(endpoint));
+      let id = getRandomIntFromInterval(1, 802);
+      if (!randomIds.includes(id)) randomIds.push(id);
+      else i--;
     }
+
+    randomIds.forEach(id => promises.push(axios.get(url + id)));
 
     return axios
       .all(promises)
