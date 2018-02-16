@@ -7,7 +7,6 @@ import PaperSheet from '../common/PaperSheet';
 
 export class Content extends Component {
   render() {
-    console.log(this.props);
     if (this.props.pokemons.length === 0)
       return <div>Loading pokémons ...</div>;
 

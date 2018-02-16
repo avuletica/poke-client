@@ -143,10 +143,8 @@ class ResponsiveDrawer extends React.Component {
             </Drawer>
           </Hidden>
           <main className={classes.content}>
-            <Typography noWrap>
-              <FilterLinks />
-              <Content />
-            </Typography>
+            <FilterLinks />
+            <Content />
           </main>
         </div>
       </div>
