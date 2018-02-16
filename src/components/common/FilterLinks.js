@@ -13,15 +13,20 @@ const buttonStyle = {
 
 export class FilterLinks extends Component {
   handleGroupOneFilter = () => {
-    this.props.actions.setVisibilityFilter({
+    const payload = {
       type: types.SHOW_GROUP_ONE_POKEMONS,
-    });
+      experience: 'high',
+      abilities: 3,
+    };
+    this.props.actions.setVisibilityFilter(payload);
   };
 
   handleGroupTwoFilter = () => {
-    this.props.actions.setVisibilityFilter({
+    const payload = {
       type: types.SHOW_GROUP_TWO_POKEMONS,
-    });
+      experience: 'low',
+    };
+    this.props.actions.setVisibilityFilter(payload);
   };
 
   handleGroupThreeFilter = () => {
@@ -33,9 +38,7 @@ export class FilterLinks extends Component {
   handleGroupFourFilter = () => {
     const payload = {
       type: types.SHOW_GROUP_FOUR_POKEMONS,
-      multiFilter: {
-        type: ['ice', 'flying'],
-      },
+      abilityTypes: ['ice', 'flying'],
     };
     this.props.actions.setVisibilityFilter(payload);
   };
@@ -43,11 +46,9 @@ export class FilterLinks extends Component {
   handleResetFilter = () => {
     const payload = {
       type: types.SHOW_ALL_POKEMONS,
-      multiFilter: {
-        abilities: 'all',
-        experience: 'all',
-        type: 'all',
-      },
+      abilities: 'all',
+      experience: 'all',
+      abilityTypes: 'all',
     };
     this.props.actions.setVisibilityFilter(payload);
   };

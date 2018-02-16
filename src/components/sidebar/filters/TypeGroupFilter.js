@@ -86,10 +86,6 @@ class TypeGroupFilter extends React.Component {
   }
 }
 
-TypeGroupFilter.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
 function mapStateToProps(state, ownProps) {
   return {};
 }

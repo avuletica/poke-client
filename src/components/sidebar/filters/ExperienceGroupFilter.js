@@ -6,6 +6,7 @@ import utils from '../../../utils/utils';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as pokemonActions from '../../../redux/actions/pokemons';
+import { visibilityFilter } from '../../../redux/reducers/pokemons';
 
 const styles = theme => ({
   root: {
@@ -31,11 +32,9 @@ class ExperienceGroupFilter extends React.Component {
       case utils.experienceGroup.value.all: {
         const payload = {
           type: types.SHOW_ALL_POKEMONS,
-          multiFilter: {
-            abilities: 'all',
-            experience: 'all',
-            type: 'all',
-          },
+          abilities: 'all',
+          experience: 'all',
+          abilityTypes: 'all',
         };
         return this.props.actions.setVisibilityFilter(payload);
       }
@@ -43,9 +42,7 @@ class ExperienceGroupFilter extends React.Component {
       case utils.experienceGroup.value.low: {
         const payload = {
           type: types.SHOW_LOW_EXPERIENCE_POKEMONS,
-          multiFilter: {
-            experience: 'low',
-          },
+          experience: 'low',
         };
         return this.props.actions.setVisibilityFilter(payload);
       }
@@ -53,9 +50,7 @@ class ExperienceGroupFilter extends React.Component {
       case utils.experienceGroup.value.high: {
         const payload = {
           type: types.SHOW_HIGH_EXPERIENCE_POKEMONS,
-          multiFilter: {
-            experience: 'high',
-          },
+          experience: 'high',
         };
         return this.props.actions.setVisibilityFilter(payload);
       }
@@ -75,7 +70,7 @@ class ExperienceGroupFilter extends React.Component {
             aria-label="gender"
             name="gender"
             className={styles.group}
-            value={this.state.value}
+            value={this.props.visibilityFilter.experience}
             onChange={this.handleChange}
           >
             <FormControlLabel
@@ -101,7 +96,9 @@ class ExperienceGroupFilter extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  return {};
+  return {
+    visibilityFilter: state.visibilityFilter,
+  };
 }
 
 function mapDispatchToProps(dispatch) {

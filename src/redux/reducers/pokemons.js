@@ -14,11 +14,9 @@ export const pokemons = (state = [], action) => {
 const initialFilter = {
   type: types.SHOW_ALL_POKEMONS,
   multiFilterType: '',
-  multiFilter: {
-    abilities: 'all',
-    experience: 'all',
-    type: 'all',
-  },
+  abilities: 'all',
+  experience: 'all',
+  abilityTypes: 'all',
 };
 
 export const visibilityFilter = (state = initialFilter, action) => {
@@ -41,7 +39,7 @@ export const getVisiblePokemons = (pokemons = [], action) => {
     case types.SHOW_GROUP_ONE_POKEMONS:
       return pokemons.filter(
         pokemon =>
-          pokemon.base_experience > 100 && pokemon.abilities.length > 2,
+          pokemon.base_experience > 100 && pokemon.abilities.length === 3,
       );
     case types.SHOW_GROUP_TWO_POKEMONS:
       return pokemons.filter(
@@ -57,7 +55,7 @@ export const getVisiblePokemons = (pokemons = [], action) => {
     case types.SHOW_GROUP_FOUR_POKEMONS:
       return pokemons.filter(pokemon =>
         pokemon.types.some(
-          word => action.multiFilter.type.indexOf(word.type.name) >= 0,
+          word => action.abilityTypes.indexOf(word.type.name) >= 0,
         ),
       );
     default:

@@ -11,11 +11,19 @@ export function fetchPokemonsFailure(error) {
 }
 
 export function setVisibilityFilter(payload) {
-  return {
+  let actionCreator = {
     type: types.SET_VISIBILITY_FILTER,
     multiFilterType: payload.type,
-    multiFilter: payload.multiFilter,
   };
+
+  if (payload.abilities)
+    actionCreator = { ...actionCreator, abilities: payload.abilities };
+  if (payload.experience)
+    actionCreator = { ...actionCreator, experience: payload.experience };
+  if (payload.abilityTypes)
+    actionCreator = { ...actionCreator, abilityTypes: payload.abilityTypes };
+
+  return actionCreator;
 }
 
 function getRandomIntFromInterval(min, max) {
