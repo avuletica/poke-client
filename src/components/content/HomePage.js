@@ -7,10 +7,11 @@ import PaperSheet from '../common/PaperSheet';
 
 export class HomePage extends Component {
   render() {
-    if (this.props.pokemons.length === 0) return <div>Loading pokemons...</div>;
+    console.log(this.props);
+    if (this.props.pokemons.length === 0) return <div>Loading pokémons ...</div>;
 
     if (this.props.visiblePokemons.length === 0)
-      return <div>No pokemons found with this filter</div>;
+      return <div>No pokémons found with this filter</div>;
 
     return (
       <div>
