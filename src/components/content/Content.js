@@ -5,10 +5,11 @@ import { getVisiblePokemons } from '../../redux/reducers/pokemons';
 import * as pokemonActions from '../../redux/actions/pokemons';
 import PaperSheet from '../common/PaperSheet';
 
-export class HomePage extends Component {
+export class Content extends Component {
   render() {
     console.log(this.props);
-    if (this.props.pokemons.length === 0) return <div>Loading pokémons ...</div>;
+    if (this.props.pokemons.length === 0)
+      return <div>Loading pokémons ...</div>;
 
     if (this.props.visiblePokemons.length === 0)
       return <div>No pokémons found with this filter</div>;
@@ -36,4 +37,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(Content);
