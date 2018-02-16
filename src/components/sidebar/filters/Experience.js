@@ -57,7 +57,7 @@ class Experience extends React.Component {
 
   render() {
     return (
-      <div className={styles.root}>
+      <div className={styles.root} style={{marginLeft: 10}}>
         <FormControl
           component="fieldset"
           required

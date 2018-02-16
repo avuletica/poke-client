@@ -33,7 +33,11 @@ class NumberOfAbilities extends React.Component {
 
   render() {
     return (
-      <form className={styles.root} autoComplete="off">
+      <form
+        className={styles.root}
+        style={{ marginLeft: 10 }}
+        autoComplete="off"
+      >
         <FormControl className={styles.formControl}>
           <InputLabel htmlFor="numberOfAbilities-simple">Abilities</InputLabel>
           <Select

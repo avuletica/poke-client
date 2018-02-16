@@ -13,7 +13,7 @@ import MenuIcon from 'material-ui-icons/Menu';
 import AbilityTypes from '../sidebar/filters/AbilityTypes';
 import NumberOfAbilities from '../sidebar/filters/NumberOfAbilities';
 import Experience from '../sidebar/filters/Experience';
-import HomePage from './Content';
+import Content from './Content';
 
 const drawerWidth = 240;
 
@@ -143,7 +143,7 @@ class ResponsiveDrawer extends React.Component {
           </Hidden>
           <main className={classes.content}>
             <Typography noWrap>
-              <HomePage />
+              <Content />
             </Typography>
           </main>
         </div>
