@@ -20,7 +20,7 @@ const styles = theme => ({
   },
 });
 
-class ExperienceGroupFilter extends React.Component {
+class Experience extends React.Component {
   state = {
     value: utils.experienceGroup.value.all,
   };
@@ -106,5 +106,5 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  ExperienceGroupFilter,
+  Experience,
 );

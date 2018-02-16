@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 import * as pokemonActions from '../../../redux/actions/pokemons';
 import * as types from '../../../redux/actions/types';
 
-class TypeGroupFilter extends React.Component {
+class AbilityTypes extends React.Component {
   state = {
     fire: false,
     water: false,
@@ -111,4 +111,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TypeGroupFilter);
+export default connect(mapStateToProps, mapDispatchToProps)(AbilityTypes);

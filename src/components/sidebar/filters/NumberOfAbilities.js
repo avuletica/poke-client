@@ -21,7 +21,7 @@ const styles = theme => ({
   },
 });
 
-class AbilitiesGroupFilter extends React.Component {
+class NumberOfAbilities extends React.Component {
   state = {
     size: '',
     name: '',
@@ -69,8 +69,8 @@ class AbilitiesGroupFilter extends React.Component {
   }
 }
 
-AbilitiesGroupFilter.propTypes = {
+NumberOfAbilities.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(AbilitiesGroupFilter);
+export default withStyles(styles)(NumberOfAbilities);
