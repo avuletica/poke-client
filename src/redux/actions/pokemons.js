@@ -3,11 +3,11 @@ import axios from 'axios';
 import utils from '../../utils/utils';
 
 export function fetchPokemonSuccess(pokemon) {
-  return { type: types.FETCH_POKEMONS_SUCCESS, pokemon };
+  return { type: types.FETCH_POKEMON_SUCCESS, pokemon };
 }
 
 export function fetchPokemonFailure(error) {
-  return { type: types.FETCH_POKEMONS_FAILURE, error };
+  return { type: types.FETCH_POKEMON_FAILURE, error };
 }
 
 export function setVisibilityFilter(payload) {

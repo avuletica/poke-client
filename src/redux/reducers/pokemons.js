@@ -2,9 +2,9 @@ import * as types from '../actions/types';
 
 export const pokemons = (state = [], action) => {
   switch (action.type) {
-    case types.FETCH_POKEMONS_SUCCESS:
+    case types.FETCH_POKEMON_SUCCESS:
       return state.concat(action.pokemon);
-    case types.FETCH_POKEMONS_FAILURE:
+    case types.FETCH_POKEMON_FAILURE:
       return state;
     default:
       return state;
