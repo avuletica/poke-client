@@ -5,7 +5,7 @@ import Wrapper from './content/Wrapper';
 class App extends Component {
   render() {
     return (
-      <div className="App" style={{ marginTop: 20 }}>
+      <div className="App">
         <Wrapper />
       </div>
     );
