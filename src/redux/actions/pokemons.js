@@ -38,7 +38,7 @@ export function loadPokemons() {
     let url = utils.endpoints.pokemons.getPokemonById;
     let randomIds = [];
 
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 25; i++) {
       let id = getRandomIntFromInterval(1, 802);
       id = id + '/';
       if (!randomIds.includes(id)) randomIds.push(id);

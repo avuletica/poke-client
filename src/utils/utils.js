@@ -20,6 +20,10 @@ export const utils = {
       ground: 'Ground',
       electric: 'Electric',
       flying: 'Flying',
+      dragon: 'Dragon',
+      ice: 'Ice',
+      rock: 'Rock',
+      bug: 'Bug',
     },
     value: {
       fire: 'fire',
@@ -27,6 +31,10 @@ export const utils = {
       ground: 'ground',
       electric: 'electric',
       flying: 'flying',
+      dragon: 'dragon',
+      ice: 'ice',
+      rock: 'rock',
+      bug: 'bug',
     },
   },
   abilityGroup: {

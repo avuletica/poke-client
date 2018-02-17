@@ -30,7 +30,7 @@ class AbilityTypes extends React.Component {
 
   render() {
     return (
-      <FormControl component="fieldset" style={{marginLeft: 15}}>
+      <FormControl component="fieldset" style={{ marginLeft: 15 }}>
         <FormLabel component="legend">Type</FormLabel>
         <FormGroup>
           <FormControlLabel
@@ -92,6 +92,54 @@ class AbilityTypes extends React.Component {
               />
             }
             label={utils.typeGroup.label.flying}
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={this.props.visibilityFilter.abilityTypes.includes(
+                  'dragon',
+                )}
+                onChange={this.handleChange(utils.typeGroup.value.dragon)}
+                value={utils.typeGroup.value.dragon}
+              />
+            }
+            label={utils.typeGroup.label.dragon}
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={this.props.visibilityFilter.abilityTypes.includes(
+                  'ice',
+                )}
+                onChange={this.handleChange(utils.typeGroup.value.ice)}
+                value={utils.typeGroup.value.ice}
+              />
+            }
+            label={utils.typeGroup.label.ice}
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={this.props.visibilityFilter.abilityTypes.includes(
+                  'rock',
+                )}
+                onChange={this.handleChange(utils.typeGroup.value.rock)}
+                value={utils.typeGroup.value.rock}
+              />
+            }
+            label={utils.typeGroup.label.rock}
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={this.props.visibilityFilter.abilityTypes.includes(
+                  'bug',
+                )}
+                onChange={this.handleChange(utils.typeGroup.value.bug)}
+                value={utils.typeGroup.value.bug}
+              />
+            }
+            label={utils.typeGroup.label.bug}
           />
         </FormGroup>
       </FormControl>
