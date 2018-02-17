@@ -37,7 +37,7 @@ class AbilityTypes extends React.Component {
             control={
               <Checkbox
                 checked={this.props.visibilityFilter.abilityTypes.includes(
-                  'fire',
+                  utils.typeGroup.value.fire,
                 )}
                 onChange={this.handleChange(utils.typeGroup.value.fire)}
                 value={utils.typeGroup.value.fire}
@@ -49,7 +49,7 @@ class AbilityTypes extends React.Component {
             control={
               <Checkbox
                 checked={this.props.visibilityFilter.abilityTypes.includes(
-                  'water',
+                  utils.typeGroup.value.water,
                 )}
                 onChange={this.handleChange(utils.typeGroup.value.water)}
                 value={utils.typeGroup.value.water}
@@ -61,7 +61,7 @@ class AbilityTypes extends React.Component {
             control={
               <Checkbox
                 checked={this.props.visibilityFilter.abilityTypes.includes(
-                  'ground',
+                  utils.typeGroup.value.ground,
                 )}
                 onChange={this.handleChange(utils.typeGroup.value.ground)}
                 value={utils.typeGroup.value.ground}
@@ -73,7 +73,7 @@ class AbilityTypes extends React.Component {
             control={
               <Checkbox
                 checked={this.props.visibilityFilter.abilityTypes.includes(
-                  'electric',
+                  utils.typeGroup.value.electric,
                 )}
                 onChange={this.handleChange(utils.typeGroup.value.electric)}
                 value={utils.typeGroup.value.electric}
@@ -85,7 +85,7 @@ class AbilityTypes extends React.Component {
             control={
               <Checkbox
                 checked={this.props.visibilityFilter.abilityTypes.includes(
-                  'flying',
+                  utils.typeGroup.value.flying,
                 )}
                 onChange={this.handleChange(utils.typeGroup.value.flying)}
                 value={utils.typeGroup.value.flying}
@@ -97,7 +97,7 @@ class AbilityTypes extends React.Component {
             control={
               <Checkbox
                 checked={this.props.visibilityFilter.abilityTypes.includes(
-                  'dragon',
+                  utils.typeGroup.value.dragon,
                 )}
                 onChange={this.handleChange(utils.typeGroup.value.dragon)}
                 value={utils.typeGroup.value.dragon}
@@ -109,7 +109,7 @@ class AbilityTypes extends React.Component {
             control={
               <Checkbox
                 checked={this.props.visibilityFilter.abilityTypes.includes(
-                  'ice',
+                  utils.typeGroup.value.ice,
                 )}
                 onChange={this.handleChange(utils.typeGroup.value.ice)}
                 value={utils.typeGroup.value.ice}
@@ -121,7 +121,7 @@ class AbilityTypes extends React.Component {
             control={
               <Checkbox
                 checked={this.props.visibilityFilter.abilityTypes.includes(
-                  'rock',
+                  utils.typeGroup.value.rock,
                 )}
                 onChange={this.handleChange(utils.typeGroup.value.rock)}
                 value={utils.typeGroup.value.rock}
@@ -133,7 +133,7 @@ class AbilityTypes extends React.Component {
             control={
               <Checkbox
                 checked={this.props.visibilityFilter.abilityTypes.includes(
-                  'bug',
+                  utils.typeGroup.value.bug,
                 )}
                 onChange={this.handleChange(utils.typeGroup.value.bug)}
                 value={utils.typeGroup.value.bug}
