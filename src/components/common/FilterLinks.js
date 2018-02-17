@@ -6,7 +6,8 @@ import { Button } from 'material-ui';
 import * as types from '../../redux/actions/types';
 
 const buttonStyle = {
-  margin: 5,
+  marginRight: 5,
+  marginBottom: 5,
 };
 
 export class FilterLinks extends Component {
@@ -62,7 +63,7 @@ export class FilterLinks extends Component {
 
   render() {
     return (
-      <div style={{ marginLeft: 20 }}>
+      <div>
         <Button
           variant="fab"
           color="primary"
@@ -103,6 +104,7 @@ export class FilterLinks extends Component {
           variant="fab"
           color="secondary"
           aria-label="add"
+          style={buttonStyle}
           onClick={this.handleResetFilter}
         >
           R
