@@ -14,7 +14,8 @@ export class FilterLinks extends Component {
     const payload = {
       type: types.SET_MULTIPLE_FILTERS,
       experience: 'high',
-      numberOfAbilities: 3,
+      numberOfAbilities: 'all',
+      abilityTypes: ['fire'],
     };
     this.props.actions.setVisibilityFilter(payload);
   };
@@ -24,6 +25,7 @@ export class FilterLinks extends Component {
       type: types.SET_MULTIPLE_FILTERS,
       experience: 'low',
       numberOfAbilities: 'all',
+      abilityTypes: [],
     };
     this.props.actions.setVisibilityFilter(payload);
   };
@@ -33,7 +35,7 @@ export class FilterLinks extends Component {
       type: types.SET_MULTIPLE_FILTERS,
       experience: 'all',
       numberOfAbilities: 'all',
-      abilityTypes: ['fire', 'ground', 'flying'],
+      abilityTypes: ['electric', 'bug'],
     };
     this.props.actions.setVisibilityFilter(payload);
   };
@@ -42,7 +44,8 @@ export class FilterLinks extends Component {
     const payload = {
       type: types.SET_MULTIPLE_FILTERS,
       experience: 'all',
-      abilityTypes: ['water', 'electric', 'flying'],
+      numberOfAbilities: 2,
+      abilityTypes: ['water'],
     };
     this.props.actions.setVisibilityFilter(payload);
   };
