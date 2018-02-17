@@ -2,11 +2,11 @@ import * as types from './types';
 import axios from 'axios';
 import utils from '../../utils/utils';
 
-export function fetchPokemonsSuccess(pokemons) {
-  return { type: types.FETCH_POKEMONS_SUCCESS, pokemons };
+export function fetchPokemonSuccess(pokemon) {
+  return { type: types.FETCH_POKEMONS_SUCCESS, pokemon };
 }
 
-export function fetchPokemonsFailure(error) {
+export function fetchPokemonFailure(error) {
   return { type: types.FETCH_POKEMONS_FAILURE, error };
 }
 
@@ -47,14 +47,17 @@ export function loadPokemons() {
 
     randomIds.forEach(id => promises.push(axios.get(url + id)));
 
-    return axios
-      .all(promises)
-      .then(
-        axios.spread((...data) => {
-          const pokemons = data.map(data => data.data);
-          dispatch(fetchPokemonsSuccess(pokemons));
-        }),
-      )
-      .catch(error => fetchPokemonsFailure(error));
+    for (let i = 0; i < 15; i++) {
+      let id = getRandomIntFromInterval(1, 802);
+      if (!randomIds.includes(id)) randomIds.push(id);
+      else i--;
+    }
+
+    randomIds.forEach(id => {
+      axios
+        .get(url + id)
+        .then(response => dispatch(fetchPokemonSuccess(response.data)))
+        .catch(error => fetchPokemonFailure(error));
+    });
   };
 }
