@@ -35,7 +35,7 @@ class NumberOfAbilities extends React.Component {
     return (
       <form
         className={styles.root}
-        style={{ marginLeft: 10 }}
+        style={{ marginLeft: 15 }}
         autoComplete="off"
       >
         <FormControl className={styles.formControl}>

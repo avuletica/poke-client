@@ -19,22 +19,22 @@ function PaperSheet(props) {
   return (
     <Paper className={classes.root} elevation={4}>
       <Grid container>
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={3}>
           <div>{props.pokemon.name.toUpperCase()}</div>
           <img src={props.pokemon.sprites.front_default} alt="pokemon" />
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={12} sm={9}>
           <Grid container>
-            <Grid item xs={3}>
+            <Grid item xs={6} sm={3}>
               <span>id: {props.pokemon.id}</span>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={6} sm={3}>
               <span>height: {props.pokemon.height}</span>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={6} sm={3}>
               <span>weight: {props.pokemon.weight}</span>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={6} sm={3}>
               <span>
                 type:{' '}
                 {props.pokemon.types.map(item => item.type.name).join(', ')}
@@ -42,16 +42,16 @@ function PaperSheet(props) {
             </Grid>
           </Grid>
           <Grid container style={{ marginTop: 20 }}>
-            <Grid item xs={3}>
+            <Grid item xs={6} sm={3}>
               <span>order: {props.pokemon.order}</span>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={6} sm={3}>
               <span>moves: {props.pokemon.moves.length}</span>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={6} sm={3}>
               <span>abilities: {props.pokemon.abilities.length}</span>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={6} sm={3}>
               <span>experience: {props.pokemon.base_experience}</span>
             </Grid>
           </Grid>

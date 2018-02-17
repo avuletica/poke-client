@@ -30,7 +30,7 @@ class AbilityTypes extends React.Component {
 
   render() {
     return (
-      <FormControl component="fieldset" style={{marginLeft: 10}}>
+      <FormControl component="fieldset" style={{marginLeft: 15}}>
         <FormLabel component="legend">Type</FormLabel>
         <FormGroup>
           <FormControlLabel
