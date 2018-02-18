@@ -14,7 +14,7 @@ export class FilterLinks extends Component {
   handleGroupOneFilter = () => {
     const payload = {
       type: types.SET_MULTIPLE_FILTERS,
-      experience: 'high',
+      experience: 'low',
       numberOfAbilities: 'all',
       abilityTypes: ['fire'],
     };
@@ -24,7 +24,7 @@ export class FilterLinks extends Component {
   handleGroupTwoFilter = () => {
     const payload = {
       type: types.SET_MULTIPLE_FILTERS,
-      experience: 'low',
+      experience: 'high',
       numberOfAbilities: 'all',
       abilityTypes: [],
     };
