@@ -6,7 +6,6 @@ import utils from '../../../utils/utils';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as pokemonActions from '../../../redux/actions/pokemons';
-import { visibilityFilter } from '../../../redux/reducers/pokemons';
 
 const styles = theme => ({
   root: {
@@ -52,12 +51,14 @@ class Experience extends React.Component {
         };
         return this.props.actions.setVisibilityFilter(payload);
       }
+      default:
+        return;
     }
   };
 
   render() {
     return (
-      <div className={styles.root} style={{marginLeft: 15}}>
+      <div className={styles.root} style={{ marginLeft: 15 }}>
         <FormControl
           component="fieldset"
           required
@@ -105,6 +106,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  Experience,
-);
+export default connect(mapStateToProps, mapDispatchToProps)(Experience);
