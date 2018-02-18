@@ -5,10 +5,10 @@ import './index.css';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './redux/store/configureStore';
-import {loadPokemons} from "./redux/actions/pokemons";
+import {fetchPokemons} from "./redux/actions/pokemons";
 
 const store = configureStore();
-store.dispatch(loadPokemons());
+store.dispatch(fetchPokemons());
 
 ReactDOM.render(
   <Provider store={store}>

@@ -10,30 +10,7 @@ export function fetchPokemonFailure(error) {
   return { type: types.FETCH_POKEMON_FAILURE, error };
 }
 
-export function setVisibilityFilter(payload) {
-  let actionCreator = {
-    type: types.SET_VISIBILITY_FILTER,
-    multiFilterType: payload.type,
-  };
-
-  if (payload.numberOfAbilities)
-    actionCreator = {
-      ...actionCreator,
-      numberOfAbilities: payload.numberOfAbilities,
-    };
-  if (payload.experience)
-    actionCreator = { ...actionCreator, experience: payload.experience };
-  if (payload.abilityTypes)
-    actionCreator = { ...actionCreator, abilityTypes: payload.abilityTypes };
-
-  return actionCreator;
-}
-
-function getRandomIntFromInterval(min, max) {
-  return (Math.floor(Math.random() * (max - min + 1)) + min).toString();
-}
-
-export function loadPokemons() {
+export function fetchPokemons() {
   return function(dispatch) {
     let url = utils.endpoints.pokemons.getPokemonById;
     let randomIds = [];
@@ -51,4 +28,27 @@ export function loadPokemons() {
         .catch(error => fetchPokemonFailure(error));
     });
   };
+}
+
+function getRandomIntFromInterval(min, max) {
+  return (Math.floor(Math.random() * (max - min + 1)) + min).toString();
+}
+
+export function setVisibilityFilter(payload) {
+  let actionCreator = {
+    type: types.SET_VISIBILITY_FILTER,
+    multiFilterType: payload.type,
+  };
+
+  if (payload.numberOfAbilities)
+    actionCreator = {
+      ...actionCreator,
+      numberOfAbilities: payload.numberOfAbilities,
+    };
+  if (payload.experience)
+    actionCreator = { ...actionCreator, experience: payload.experience };
+  if (payload.abilityTypes)
+    actionCreator = { ...actionCreator, abilityTypes: payload.abilityTypes };
+
+  return actionCreator;
 }
