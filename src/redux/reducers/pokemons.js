@@ -55,8 +55,7 @@ export const getVisiblePokemons = (pokemons = [], action) => {
 
       if (action.abilityTypes.length !== 0) {
         visiblePokemons = visiblePokemons.filter(pokemon => {
-          let pokemonTypes = [];
-          pokemon.types.map(item => pokemonTypes.push(item.type.name));
+          const pokemonTypes = pokemon.types.map(item => item.type.name);
           return action.abilityTypes.every(
             elem => pokemonTypes.indexOf(elem) > -1,
           );
